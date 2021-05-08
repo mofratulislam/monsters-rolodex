@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import CardList from './components/card-list/card-list.component';
+import Header from './components/header/header.component';
 import SearchBox from './components/search-box/search-box.component';
 import { fetchMonsters } from './redux/monsters/monstersSlice';
+import { changeSearchField } from './redux/searchField/searchFieldSlice';
 
 const App = () => {
-    const [searchField, setSearchField] = useState('');
     const [filteredMonsters, setFilteredMonsters] = useState([]);
 
     const monsters = useSelector((state) => state.monsters.monstersProfiles);
-    console.log(monsters);
+
+    const searchField = useSelector((state) => state.searchField.searchField);
 
     const dispatch = useDispatch();
 
@@ -19,19 +21,20 @@ const App = () => {
     }, [dispatch]);
 
     const handleChange = (e) => {
-        setSearchField(e.target.value);
+        dispatch(changeSearchField(e.target.value));
     };
 
     useEffect(() => {
         const monstersData = monsters.filter((monster) =>
             monster.name.toLowerCase().includes(searchField.toLowerCase())
         );
+
         setFilteredMonsters(monstersData);
     }, [monsters, searchField]);
 
     return (
         <div className="App">
-            <h1>Monsters Rolodex</h1>
+            <Header />
             <SearchBox placeholder="Search Monsters" handleChange={handleChange} />
             <CardList monsters={searchField === '' ? monsters : filteredMonsters} />
         </div>

@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchMonsters = createAsyncThunk('users/fetchMonsters', async () => {
@@ -7,7 +6,7 @@ export const fetchMonsters = createAsyncThunk('users/fetchMonsters', async () =>
     return data;
 });
 
-export const monstersSlice = createSlice({
+const monstersSlice = createSlice({
     name: 'monsters',
     initialState: {
         monstersProfiles: [],
@@ -33,7 +32,7 @@ export const monstersSlice = createSlice({
     },
 });
 
-export const { monstersLoading, monstersReceived } = monstersSlice.actions;
+// export const { monstersLoading, monstersReceived } = monstersSlice.actions;
 
 // export const fetchMonsters = () => (dispatch) => {
 //     dispatch(monstersLoading(true));
