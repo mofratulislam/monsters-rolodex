@@ -1,2 +1,0 @@
-(this["webpackJsonpmonsters-rolodex"]=this["webpackJsonpmonsters-rolodex"]||[]).push([[3],{28:function(t,e,s){},29:function(t,e,s){"use strict";s.r(e);var c=s(1);s(28);e.default=function(t){var e=t.monster,s=e.id,n=e.name,r=e.email;return Object(c.jsxs)("div",{className:"card-container",children:[Object(c.jsx)("img",{src:"https://robohash.org/".concat(s,"?set=set2&size=180x180"),height:"180px",width:"180px",alt:"Mr. ".concat(n)}),Object(c.jsx)("h2",{children:n}),Object(c.jsx)("h3",{children:r})]})}}}]);
-//# sourceMappingURL=3.3bb3abc6.chunk.js.map
